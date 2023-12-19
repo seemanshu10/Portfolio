@@ -1,7 +1,9 @@
 import maya.cmds as mc
 import maya.api.OpenMaya as om
 
+
 def Set_PvVector():
+
      
     first_joint = om.MVector(mc.xform('joint1',q=True,rp=True,ws=True))
     second_joint = om.MVector(mc.xform('joint2',q=True,rp=True,ws=True))
@@ -17,5 +19,18 @@ def Set_PvVector():
     
     mc.xform('PV',t=mid_point_middlePoint)
     
-    
+def jointName_Get():
+    parentjoinName = mc.ls(sl=1, typ="joint")
+    print parentjoinName
+    if not parentjoinName:
+        mc.error ("Please select a valid joint")
+    else:
+        # Get the children of the selected joint
+        children = mc.listRelatives(parentjoinName, ad=True,c=True)
+        print (children)
+        children.append(parentjoinName)
+        children.reverse()
+        print(children)
+
+jointName_Get()
 Set_PvVector()
