@@ -1,4 +1,4 @@
-
+'''
 # Import the module containing your functions. Replace 'your_module' with the name of your Python file (without the .py extension)
 import CntrlShapes
 reload(CntrlShapes)
@@ -7,3 +7,10 @@ reload(CntrlShapes)
 result = CntrlShapes.cntrlsShape_utils("dumbell")
 print result
 
+'''
+
+#import maya.cmds as mc
+import sys
+print (sys.version)
+
+print ("Hello Worls")
