@@ -21,7 +21,8 @@ def Set_PvVector():
     
 def jointName_Get():
     parentjoinName = mc.ls(sl=1, typ="joint")
-    print parentjoinName
+    print (parentjoinName)
+
     if not parentjoinName:
         mc.error ("Please select a valid joint")
     else:

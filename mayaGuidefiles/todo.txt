@@ -1,0 +1,4 @@
+this folder will contain all the maya scene files with guides for biped quadruped bird rig and all the necessary  maya files 
+
+all will be called by the codes with thier respective absoulute path 
+
