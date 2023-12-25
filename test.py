@@ -6,20 +6,16 @@ reload(CntrlShapes)
 # Call the function and store the result
 result = CntrlShapes.cntrlsShape_utils("dumbell")
  
-
-
-import maya.cmds as mc
-
-mc.sphere()
-mc.polySphere()
-mc.select
-print ("Hello Worls")
-
 '''
 #import sys
 #sys.path.append(r'D:\\PythonTools\\maya_Utils')
 from maya_Utils import file_Utils
+reload (file_Utils)
 
-existingFile=file_Utils.is_file(r"D:\\PythonTools\\mayaGuidefiles\\biped1.ma")
+#existingFile=file_Utils.is_file(r"D:\\PythonTools\\mayaGuidefiles\\biped.ma")
+file_Utils.open_files(r"D:\\PythonTools\\mayaGuidefiles\\biped.ma")
+#rint (existingFile)
 
-print (existingFile)
+
+
+# added new statemnet for test 
