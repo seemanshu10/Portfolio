@@ -33,5 +33,5 @@ def jointName_Get():
         children.reverse()
         print(children)
 
-jointName_Get()
-Set_PvVector()
+#jointName_Get()
+#Set_PvVector()
