@@ -9,6 +9,7 @@ result = CntrlShapes.cntrlsShape_utils("dumbell")
 '''
 #import sys
 #sys.path.append(r'D:\\PythonTools\\maya_Utils')
+from importlib import reload
 from maya_Utils import file_Utils
 reload (file_Utils)
 
@@ -16,6 +17,3 @@ reload (file_Utils)
 file_Utils.open_files(r"D:\\PythonTools\\mayaGuidefiles\\biped.ma")
 #rint (existingFile)
 
-
-
-# added new statemnet for test 

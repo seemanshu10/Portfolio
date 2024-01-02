@@ -11,12 +11,15 @@ import maya.cmds as cmds
 s = "D:\\\\PythonTools"
 new_s = s.replace('\\\\', '\\')
 print(new_s) 
-'''
+
 
 import CntrlShapes
 import sys 
 dirPath= (sys.path)[21]
 print (dirPath)
+
+'''
+
 
 #import maya.cmds, os
 #print os.path.split(maya.cmds.__file__)[0]

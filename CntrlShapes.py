@@ -31,8 +31,7 @@ def cntrlsShape_utils(func_name, name=None):
     if func:
         return func(name)
     else:
-        print "I ran "
-        print "Shape not recognized add a correct shape from list "
+        print ("Shape not recognized add a correct shape from list ")
         return None
 
 

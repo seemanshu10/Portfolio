@@ -6,7 +6,17 @@ import maya.cmds as mc
 #import standard modules
 import os
 import glob
+import sys 
 
+
+def getDirectoryPath():
+    """
+    get the directory path for the file you are running the code from
+    return bool
+    """
+    dirPath= (sys.path)[21]
+    print (dirPath)
+    return dirPath
 
 def is_file(file_Name):
     """
