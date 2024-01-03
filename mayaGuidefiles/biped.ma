@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: biped.ma
-//Last modified: Sun, Dec 31, 2023 11:57:37 PM
+//Last modified: Thu, Jan 04, 2024 02:36:32 AM
 //Codeset: 1252
 requires maya "2020";
 requires "stereoCamera" "10.0";
@@ -10,17 +10,17 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "202011110415-b1e20b88e2";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 19045)\n";
-fileInfo "UUID" "12EC619C-47B3-8628-1920-16806A34B00C";
+fileInfo "UUID" "BF0FEF3E-4362-FC35-B41F-599CDA5F3D02";
 createNode transform -s -n "persp";
 	rename -uid "B2BA4999-4369-10FF-5252-77AB88617AEA";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -0.45126642430649472 20.45122026958639 11.966626504456078 ;
-	setAttr ".r" -type "double3" -36.93835272978766 -371.39999999904342 0 ;
+	setAttr ".t" -type "double3" -0.21735717174699409 7.8062299271352549 6.0385437667012427 ;
+	setAttr ".r" -type "double3" -26.738352729788314 -367.79999999899348 -4.0128206082468082e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "894D54BF-4280-52C9-5467-B48641B405C2";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 17.323780877415452;
+	setAttr ".coi" 3.8861590195470526;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -3320,19 +3320,14 @@ createNode transform -n "guide_Locs_Grp";
 createNode transform -n "root" -p "guide_Locs_Grp";
 	rename -uid "BD372A24-4EEC-37A2-392B-78BD2CA97904";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 9;
 	setAttr ".ovrgb" -type "float3" 0.13372093 0.13372093 0.13372093 ;
-	setAttr ".t" -type "double3" 1.9709482594718226e-16 9.8285102844238281 -0.17717207968235016 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr ".t" -type "double3" 1.9709482594718226e-16 15.334798128347952 -0.17717207968235016 ;
 	setAttr -k on ".MeasureVis";
 createNode locator -n "rootShape" -p "root";
 	rename -uid "2C794AB0-482B-207A-AC47-2EBF59F5380C";
@@ -3341,18 +3336,14 @@ createNode locator -n "rootShape" -p "root";
 createNode transform -n "spine_start" -p "root";
 	rename -uid "BA5B8350-44CB-D16E-D4B6-9B99FDA605B0";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 9;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Module" 1;
 createNode locator -n "spine_startShape" -p "spine_start";
 	rename -uid "24474783-42B2-77C7-BE4C-4293C9C91C20";
 	setAttr -k off ".v";
@@ -3360,17 +3351,13 @@ createNode locator -n "spine_startShape" -p "spine_start";
 createNode transform -n "spine_mid" -p "spine_start";
 	rename -uid "233D8342-4C59-0554-C0A4-38BFB151AEE0";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 2.6863914619966152e-17 1.7353315353393555 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Module" 1;
 createNode locator -n "spine_midShape" -p "spine_mid";
 	rename -uid "CA8867DF-4C75-C2BA-0E20-94B99CE682E1";
 	setAttr -k off ".v";
@@ -3378,17 +3365,13 @@ createNode locator -n "spine_midShape" -p "spine_mid";
 createNode transform -n "chest" -p "spine_mid";
 	rename -uid "192DCFD7-4DE0-CE8C-4EA1-8EBBA83D789B";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" -1.7041072054005044e-17 1.4187908172607422 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Module" 9;
 createNode locator -n "chestShape" -p "chest";
 	rename -uid "0F3B4072-4865-172B-9F9C-FFA3F51024EB";
 	setAttr -k off ".v";
@@ -3396,17 +3379,13 @@ createNode locator -n "chestShape" -p "chest";
 createNode transform -n "Neck" -p "chest";
 	rename -uid "B0E5127F-4BD1-45F2-CFCB-10820F480393";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 4.974225899977192e-15 1.1586301542593027 -0.061786671298284745 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Module" 9;
 createNode locator -n "NeckShape" -p "Neck";
 	rename -uid "B09B4924-48C2-866B-92C7-B7882BAA9902";
 	setAttr -k off ".v";
@@ -3414,33 +3393,25 @@ createNode locator -n "NeckShape" -p "Neck";
 createNode transform -n "Head" -p "Neck";
 	rename -uid "A85CE9E8-4EC7-129C-ABC7-E0AB3EE9609E";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
-	setAttr ".t" -type "double3" 3.0442813246607902e-16 1.5336364078298459 0.25730663941997711 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
+	setAttr ".t" -type "double3" 3.0442813246607902e-16 1.5336364078298459 0 ;
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Module" 9;
 createNode locator -n "HeadShape" -p "Head";
 	rename -uid "0D4D90D1-47DC-7856-45DD-D9B3B55F1D03";
 	setAttr -k off ".v";
 	setAttr ".los" -type "double3" 0.19999999999999993 0.19999999999999993 0.19999999999999993 ;
 createNode transform -n "HeadEnd" -p "Head";
 	rename -uid "AD3D7513-4E01-C127-10C1-138220869AD0";
-	setAttr ".t" -type "double3" 1.0085152436218294e-15 1.501551314602505 -0.020940055620250114 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
+	setAttr ".t" -type "double3" 1.0085152436218294e-15 1.501551314602505 0 ;
+	setAttr -k on ".Module" 9;
 createNode locator -n "HeadEndShape" -p "HeadEnd";
 	rename -uid "DDB094A2-439C-E380-3C53-F09AB4FE3A42";
 	setAttr -k off ".v";
@@ -3448,33 +3419,27 @@ createNode locator -n "HeadEndShape" -p "HeadEnd";
 createNode transform -n "l_Eye" -p "Neck";
 	rename -uid "057E63C3-431A-345E-C995-3D86125D2B6F";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.34230101108550509 1.7718374513315176 1.3059674060449928 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_EyeShape" -p "l_Eye";
 	rename -uid "177F29A8-45A7-25E7-051B-4198E09EA8D0";
 	setAttr -k off ".v";
 	setAttr ".los" -type "double3" 0.19999999999999993 0.19999999999999993 0.19999999999999993 ;
 createNode transform -n "l_Eye_End" -p "l_Eye";
 	rename -uid "53A4498A-474A-D43D-B1FD-B881A7DB8F7A";
-	setAttr ".t" -type "double3" 0 0.0023822784423828125 0.17085349559783936 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
+	setAttr ".t" -type "double3" 0 0 0.27312125911190099 ;
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_Eye_EndShape" -p "l_Eye_End";
 	rename -uid "1BB7995B-4BB4-C998-0939-2185D4F7DB80";
 	setAttr -k off ".v";
@@ -3482,17 +3447,14 @@ createNode locator -n "l_Eye_EndShape" -p "l_Eye_End";
 createNode transform -n "l_Scapula" -p "chest";
 	rename -uid "FC37E8F1-4E63-4316-4722-C98DE01A13EA";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.43653601408004739 0.72416782379150391 -0.043911918997764587 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis" yes;
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 2;
 createNode locator -n "l_ScapulaShape" -p "l_Scapula";
 	rename -uid "DB51AFEF-4722-74CD-7B11-9A837B4AD6A7";
 	setAttr -k off ".v";
@@ -3500,17 +3462,14 @@ createNode locator -n "l_ScapulaShape" -p "l_Scapula";
 createNode transform -n "l_Shoulder" -p "l_Scapula";
 	rename -uid "12649D40-447F-BC80-C93A-CDADB622029C";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 1.0925440192222595 -0.00030040740966796875 -0.00033999979496002197 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis" yes;
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 2;
 createNode locator -n "l_ShoulderShape" -p "l_Shoulder";
 	rename -uid "FD5F53EC-4BE8-17F1-664E-C99D6558526D";
 	setAttr -k off ".v";
@@ -3518,17 +3477,14 @@ createNode locator -n "l_ShoulderShape" -p "l_Shoulder";
 createNode transform -n "l_Elbow" -p "l_Shoulder";
 	rename -uid "4A645E27-4E91-F4F3-A285-49A8270E7247";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
-	setAttr ".t" -type "double3" 2.6106599569320679 -0.00189971923828125 -0.136897012591362 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
+	setAttr ".t" -type "double3" 2.6106599569320679 0 0 ;
 	setAttr -k on ".MeasureVis" yes;
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 2;
 createNode locator -n "l_ElbowShape" -p "l_Elbow";
 	rename -uid "F5D8A79A-4599-2AB0-B795-29BD362380C9";
 	setAttr -k off ".v";
@@ -3536,17 +3492,14 @@ createNode locator -n "l_ElbowShape" -p "l_Elbow";
 createNode transform -n "l_Wrist" -p "l_Elbow";
 	rename -uid "FEA2F299-440C-A467-AE37-C7A5B502DFD9";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 4.8892897367477417 0 -0.0023259967565536499 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 2;
 createNode locator -n "l_WristShape" -p "l_Wrist";
 	rename -uid "FD5D1611-4989-7D63-151E-E696408E89D0";
 	setAttr -k off ".v";
@@ -3554,18 +3507,15 @@ createNode locator -n "l_WristShape" -p "l_Wrist";
 createNode transform -n "l_pinky_Finger_01" -p "l_Wrist";
 	rename -uid "AD60778E-4B06-9CAD-300A-1A9C0AF5E5A7";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.28079819252236859 -0.0024995803833007813 -0.18780156175955132 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr ".r" -type "double3" 0 19.659720942114255 0 ;
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 4;
 createNode locator -n "l_pinky_Finger_01Shape" -p "l_pinky_Finger_01";
 	rename -uid "DFFE89B1-412A-3447-863D-3EB320D14C08";
 	setAttr -k off ".v";
@@ -3573,17 +3523,14 @@ createNode locator -n "l_pinky_Finger_01Shape" -p "l_pinky_Finger_01";
 createNode transform -n "l_pinky_Finger_02" -p "l_pinky_Finger_01";
 	rename -uid "15EA6A0F-4A4C-2ED2-639F-389FC034BA3B";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.5766292845589378 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 4;
 createNode locator -n "l_pinky_Finger_02Shape" -p "l_pinky_Finger_02";
 	rename -uid "15F2ACE9-4249-DA88-7A4A-CB9F482DC8EB";
 	setAttr -k off ".v";
@@ -3591,17 +3538,14 @@ createNode locator -n "l_pinky_Finger_02Shape" -p "l_pinky_Finger_02";
 createNode transform -n "l_pinky_Finger_03" -p "l_pinky_Finger_02";
 	rename -uid "15DED0DA-4D35-C5CD-E014-BB96DE89D2F8";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.22994609152029266 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 4;
 createNode locator -n "l_pinky_Finger_03Shape" -p "l_pinky_Finger_03";
 	rename -uid "6CA7AA0D-4DEA-8167-C327-65A0815161D0";
 	setAttr -k off ".v";
@@ -3609,33 +3553,27 @@ createNode locator -n "l_pinky_Finger_03Shape" -p "l_pinky_Finger_03";
 createNode transform -n "l_pinky_Finger_04" -p "l_pinky_Finger_03";
 	rename -uid "C1AAD622-4061-9A82-52CD-869D8DC1D138";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.14086459022363051 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 4;
 createNode locator -n "l_pinky_Finger_04Shape" -p "l_pinky_Finger_04";
 	rename -uid "8288A683-4BAA-5B6A-87D1-13A81B8268CD";
 	setAttr -k off ".v";
 	setAttr ".los" -type "double3" 0.05999999999999997 0.05999999999999997 0.05999999999999997 ;
 createNode transform -n "l_pinky_Finger_05" -p "l_pinky_Finger_04";
 	rename -uid "3BB91655-4E0C-80DE-9B13-CA87077F62F3";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.17775843806385527 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 4;
 createNode locator -n "l_pinky_Finger_05Shape" -p "l_pinky_Finger_05";
 	rename -uid "7828F56E-4894-CED5-4085-9FAA56245FB0";
 	setAttr -k off ".v";
@@ -3643,18 +3581,15 @@ createNode locator -n "l_pinky_Finger_05Shape" -p "l_pinky_Finger_05";
 createNode transform -n "l_ring_Finger_01" -p "l_Wrist";
 	rename -uid "FB9ECB1F-48CA-6F0D-A1E7-768E8BA4122E";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.29365585515417347 -0.0024995803833007813 -0.13190547341597847 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr ".r" -type "double3" 0 8.8464504203781207 0 ;
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 7;
 createNode locator -n "l_ring_Finger_01Shape" -p "l_ring_Finger_01";
 	rename -uid "9905A26E-4B8E-484F-458D-4A9A8751E5BC";
 	setAttr -k off ".v";
@@ -3662,17 +3597,14 @@ createNode locator -n "l_ring_Finger_01Shape" -p "l_ring_Finger_01";
 createNode transform -n "l_ring_Finger_02" -p "l_ring_Finger_01";
 	rename -uid "F9C0B8FB-4A26-242C-23E4-D6A352B25490";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.60629929929414317 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 7;
 createNode locator -n "l_ring_Finger_02Shape" -p "l_ring_Finger_02";
 	rename -uid "9C89B8F9-4536-9135-4AEB-C6BE04228D20";
 	setAttr -k off ".v";
@@ -3680,17 +3612,14 @@ createNode locator -n "l_ring_Finger_02Shape" -p "l_ring_Finger_02";
 createNode transform -n "l_ring_Finger_03" -p "l_ring_Finger_02";
 	rename -uid "068CD1E6-44C0-BEA6-F58F-AEAF57542AE0";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.27810536742418041 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 7;
 createNode locator -n "l_ring_Finger_03Shape" -p "l_ring_Finger_03";
 	rename -uid "2FF3786C-4E53-4194-7A32-D7AAEE5098B4";
 	setAttr -k off ".v";
@@ -3698,33 +3627,27 @@ createNode locator -n "l_ring_Finger_03Shape" -p "l_ring_Finger_03";
 createNode transform -n "l_ring_Finger_04" -p "l_ring_Finger_03";
 	rename -uid "BF2003D9-4D24-3136-F2B8-BAAE6BF8F9ED";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.18804479247528028 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 7;
 createNode locator -n "l_ring_Finger_04Shape" -p "l_ring_Finger_04";
 	rename -uid "065CC088-40B7-64FC-5E8F-308BC541D70E";
 	setAttr -k off ".v";
 	setAttr ".los" -type "double3" 0.05999999999999997 0.05999999999999997 0.05999999999999997 ;
 createNode transform -n "l_ring_Finger_05" -p "l_ring_Finger_04";
 	rename -uid "8678A287-4A94-BD89-DBAE-7BB5ECEE9AEE";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.19033982533096061 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 7;
 createNode locator -n "l_ring_Finger_05Shape" -p "l_ring_Finger_05";
 	rename -uid "AD75DF13-4B37-ACEB-60BF-A49F8A6743CC";
 	setAttr -k off ".v";
@@ -3732,18 +3655,15 @@ createNode locator -n "l_ring_Finger_05Shape" -p "l_ring_Finger_05";
 createNode transform -n "l_thumb_Finger_01" -p "l_Wrist";
 	rename -uid "077A31C6-43C4-5398-CD11-7386A0291930";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.20403003692626953 -0.098799705505371094 0.14626049250364304 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr ".r" -type "double3" 15.369188093083624 -37.316761684906986 -23.024162619034087 ;
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 8;
 createNode locator -n "l_thumb_Finger_01Shape" -p "l_thumb_Finger_01";
 	rename -uid "ECF294F0-4FCC-0ECD-FC2A-FFB37E6368EE";
 	setAttr -k off ".v";
@@ -3751,17 +3671,14 @@ createNode locator -n "l_thumb_Finger_01Shape" -p "l_thumb_Finger_01";
 createNode transform -n "l_thumb_Finger_02" -p "l_thumb_Finger_01";
 	rename -uid "8B2819D7-4E20-C497-2577-A1BBD5524D3D";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.35760972624201959 2.1163626406917047e-16 2.1792463666958639e-17 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 8;
 createNode locator -n "l_thumb_Finger_02Shape" -p "l_thumb_Finger_02";
 	rename -uid "D2C42971-4D90-F788-E4CF-729567497F08";
 	setAttr -k off ".v";
@@ -3769,33 +3686,27 @@ createNode locator -n "l_thumb_Finger_02Shape" -p "l_thumb_Finger_02";
 createNode transform -n "l_thumb_Finger_03" -p "l_thumb_Finger_02";
 	rename -uid "FB74F15A-40B7-E6B0-DDDA-7DB98A656641";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.16349115629564184 -1.5031378919339033e-15 4.9981720151581754e-16 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 8;
 createNode locator -n "l_thumb_Finger_03Shape" -p "l_thumb_Finger_03";
 	rename -uid "BEA9BFE5-4551-C00A-32C3-E09E7EA93E5B";
 	setAttr -k off ".v";
 	setAttr ".los" -type "double3" 0.05999999999999997 0.05999999999999997 0.05999999999999997 ;
 createNode transform -n "l_thumb_Finger_04" -p "l_thumb_Finger_03";
 	rename -uid "634D7274-4560-53AC-847B-75B1D8E61A32";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.13033120307096033 4.4716834401992145e-15 -4.2396641752873165e-15 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 8;
 createNode locator -n "l_thumb_Finger_04Shape" -p "l_thumb_Finger_04";
 	rename -uid "98792F12-4A37-D492-F2C7-659115ED45A6";
 	setAttr -k off ".v";
@@ -3803,18 +3714,15 @@ createNode locator -n "l_thumb_Finger_04Shape" -p "l_thumb_Finger_04";
 createNode transform -n "l_index_Finger_01" -p "l_Wrist";
 	rename -uid "55357A5D-4603-1899-3656-AE84A3CB106D";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.86088037490844727 -0.01399993896484375 0.2398820947855711 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr ".r" -type "double3" 0 -16.043889610866508 0 ;
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 5;
 createNode locator -n "l_index_Finger_01Shape" -p "l_index_Finger_01";
 	rename -uid "8CA58EA0-47F4-0676-183C-638A7D1AE6BE";
 	setAttr -k off ".v";
@@ -3822,17 +3730,14 @@ createNode locator -n "l_index_Finger_01Shape" -p "l_index_Finger_01";
 createNode transform -n "l_index_Finger_02" -p "l_index_Finger_01";
 	rename -uid "F2552574-43F3-CFF2-2938-B38DEE8A82F7";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.26190336695448385 -3.5527136788005009e-15 -2.677979366039196e-17 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 5;
 createNode locator -n "l_index_Finger_02Shape" -p "l_index_Finger_02";
 	rename -uid "FB6A69C5-468D-3C2C-DD9A-708623958CDB";
 	setAttr -k off ".v";
@@ -3840,33 +3745,27 @@ createNode locator -n "l_index_Finger_02Shape" -p "l_index_Finger_02";
 createNode transform -n "l_index_Finger_03" -p "l_index_Finger_02";
 	rename -uid "703234C6-4594-DCEC-0912-DDB0AA2762C4";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.17630549897298586 0 -4.6989322155521762e-16 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 5;
 createNode locator -n "l_index_Finger_03Shape" -p "l_index_Finger_03";
 	rename -uid "DDAF999F-4225-064F-981F-5EB43F6633D9";
 	setAttr -k off ".v";
 	setAttr ".los" -type "double3" 0.05999999999999997 0.05999999999999997 0.05999999999999997 ;
 createNode transform -n "l_index_Finger_04" -p "l_index_Finger_03";
 	rename -uid "DBE63409-4B8B-3C3A-5CBA-3B85E7465000";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.18343663576266891 0 -2.6367796834847468e-16 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 5;
 createNode locator -n "l_index_Finger_04Shape" -p "l_index_Finger_04";
 	rename -uid "FF00C900-4EF2-AD7D-21D8-9594A4D95A57";
 	setAttr -k off ".v";
@@ -3874,18 +3773,15 @@ createNode locator -n "l_index_Finger_04Shape" -p "l_index_Finger_04";
 createNode transform -n "l_middle_Finger_01" -p "l_Wrist";
 	rename -uid "A6002E09-49CA-4DD5-41FB-A990DC286E8B";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.96324014663696289 0.00010013580322265625 0.0039649903774261475 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr ".r" -type "double3" 0 0.72249921596487587 0 ;
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_middle_Finger_01Shape" -p "l_middle_Finger_01";
 	rename -uid "5F8FAC86-424F-4F99-B8AA-0BA2F3A458F5";
 	setAttr -k off ".v";
@@ -3893,17 +3789,14 @@ createNode locator -n "l_middle_Finger_01Shape" -p "l_middle_Finger_01";
 createNode transform -n "l_middle_Finger_02" -p "l_middle_Finger_01";
 	rename -uid "3DD856CE-49EB-49FF-9030-A490F3E4A7D1";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.30955790340450573 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_middle_Finger_02Shape" -p "l_middle_Finger_02";
 	rename -uid "858C7BCE-4A03-6D53-D55F-CC9BD75D1701";
 	setAttr -k off ".v";
@@ -3911,33 +3804,27 @@ createNode locator -n "l_middle_Finger_02Shape" -p "l_middle_Finger_02";
 createNode transform -n "l_middle_Finger_03" -p "l_middle_Finger_02";
 	rename -uid "0C41FC1D-4717-7DD2-6B47-9AA5E751220F";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.17113629785841589 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_middle_Finger_03Shape" -p "l_middle_Finger_03";
 	rename -uid "51853161-423D-75B5-BBF8-92AF727013E1";
 	setAttr -k off ".v";
 	setAttr ".los" -type "double3" 0.05999999999999997 0.05999999999999997 0.05999999999999997 ;
 createNode transform -n "l_middle_Finger_04" -p "l_middle_Finger_03";
 	rename -uid "71176688-4C33-66CE-473E-27B0EDDE41B0";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.20928264133552421 0 0 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_middle_Finger_04Shape" -p "l_middle_Finger_04";
 	rename -uid "B7E44CD7-4C9F-6B2A-918B-24AB7353F39A";
 	setAttr -k off ".v";
@@ -3945,17 +3832,14 @@ createNode locator -n "l_middle_Finger_04Shape" -p "l_middle_Finger_04";
 createNode transform -n "l_leg" -p "root";
 	rename -uid "6CCF9E9B-4B7A-48EA-537B-3E95C380A54B";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.8196865916252134 -0.20922279357910156 -0.053527146577835083 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis" yes;
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 3;
 createNode locator -n "l_legShape" -p "l_leg";
 	rename -uid "D07D98D6-4852-C3EE-EB38-FEA288D61405";
 	setAttr -k off ".v";
@@ -3963,35 +3847,29 @@ createNode locator -n "l_legShape" -p "l_leg";
 createNode transform -n "l_knee" -p "l_leg";
 	rename -uid "9180F430-4B75-0303-1CCE-24A26BE8EABB";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.15530562400817871 -4.951540470123291 0.44726522266864777 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis" yes;
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 3;
 createNode locator -n "l_kneeShape" -p "l_knee";
 	rename -uid "00A402E5-4823-7B3A-2897-E4AC9B3DFD51";
 	setAttr -k off ".v";
 	setAttr ".los" -type "double3" 0.19999999999999993 0.19999999999999993 0.19999999999999993 ;
-createNode transform -n "l_ankle" -p "l_leg";
+createNode transform -n "l_ankle" -p "l_knee";
 	rename -uid "DEFCA78C-4825-9B47-A0C7-1A9F2D970DB4";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.26701587438583374 -8.7694521546363831 0.16205558180809021 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 3;
 createNode locator -n "l_ankleShape" -p "l_ankle";
 	rename -uid "07B59EB7-4256-1018-DB49-AE89F21094E0";
 	setAttr -k off ".v";
@@ -3999,17 +3877,14 @@ createNode locator -n "l_ankleShape" -p "l_ankle";
 createNode transform -n "l_Toe" -p "l_ankle";
 	rename -uid "A546CDD4-49F4-A112-C58F-78B043082312";
 	addAttr -ci true -k true -sn "MeasureVis" -ln "MeasureVis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" -0.016252517700195313 -0.6661173403263092 1.3423236161470413 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
 	setAttr -k on ".MeasureVis";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 3;
 createNode locator -n "l_ToeShape" -p "l_Toe";
 	rename -uid "5C263C28-4A40-E104-33E7-85AD77E868B7";
 	setAttr -k off ".v";
@@ -4017,16 +3892,13 @@ createNode locator -n "l_ToeShape" -p "l_Toe";
 	setAttr ".los" -type "double3" -0.10000000000000006 -0.10000000000000006 -0.10000000000000006 ;
 createNode transform -n "l_Toe_End" -p "l_Toe";
 	rename -uid "3535CF78-4EB5-3080-EC50-28A50434E056";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0 -0.084318794310092926 0.6212000846862793 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 3;
 createNode locator -n "l_Toe_EndShape" -p "l_Toe_End";
 	rename -uid "24A72E9A-44A5-580D-B1F7-72A514979D58";
 	setAttr -k off ".v";
@@ -4034,55 +3906,43 @@ createNode locator -n "l_Toe_EndShape" -p "l_Toe_End";
 	setAttr ".los" -type "double3" -0.10000000000000003 -0.10000000000000003 -0.10000000000000003 ;
 createNode transform -n "l_Heel" -p "l_ankle";
 	rename -uid "AFE6EB4F-4067-D39F-5A11-D49308A5AD38";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" -2.5033950805664063e-06 -0.84983533620834351 -0.64353136718273163 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr ".s" -type "double3" 0.12999999999999998 0.12999999999999998 0.12999999999999998 ;
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_HeelShape" -p "l_Heel";
 	rename -uid "76FC7A4F-4473-9CAB-DB9C-04AFB6486E3B";
 	setAttr -k off ".v";
-	setAttr ".los" -type "double3" 0.70000000000000007 0.70000000000000007 0.70000000000000007 ;
+	setAttr ".los" -type "double3" 0.2 0.2 0.2 ;
 createNode transform -n "l_Foot_Inner" -p "l_ankle";
 	rename -uid "EAA37794-4B59-31E4-5EA0-E7832D3B5CB1";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" -0.41625446081161499 -0.84983533620834351 1.3423236161470413 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr ".s" -type "double3" 0.12999999999999998 0.12999999999999998 0.12999999999999998 ;
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_Foot_InnerShape" -p "l_Foot_Inner";
 	rename -uid "06A47DD5-4979-198B-262F-79B224A5B15D";
 	setAttr -k off ".v";
-	setAttr ".los" -type "double3" 0.70000000000000007 0.70000000000000007 0.70000000000000007 ;
+	setAttr ".los" -type "double3" 0.2 0.2 0.2 ;
 createNode transform -n "l_Foot_Outer" -p "l_ankle";
 	rename -uid "C0480315-4B10-1EC0-6008-9097C62D5A6F";
+	addAttr -ci true -k true -sn "Sides" -ln "Sides" -min 0 -max 2 -en "Centre:left:right" 
+		-at "enum";
+	addAttr -ci true -k true -sn "Module" -ln "Module" -min 0 -max 9 -en "Root:Spine:arm:leg:pinky:index:midlle:ring:Thumb:Extra" 
+		-at "enum";
 	setAttr ".t" -type "double3" 0.38374757766723633 -0.84983533620834351 1.3423236161470413 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
-	setAttr -l on -k off ".rx";
-	setAttr -l on -k off ".ry";
-	setAttr -l on -k off ".rz";
-	setAttr ".s" -type "double3" 0.12999999999999998 0.12999999999999998 0.12999999999999998 ;
-	setAttr -l on -k off ".sx";
-	setAttr -l on -k off ".sy";
-	setAttr -l on -k off ".sz";
+	setAttr -k on ".Sides" 1;
+	setAttr -k on ".Module" 9;
 createNode locator -n "l_Foot_OuterShape" -p "l_Foot_Outer";
 	rename -uid "22A24AC7-405A-2F71-7887-A6841CB19C2D";
 	setAttr -k off ".v";
-	setAttr ".los" -type "double3" 0.70000000000000007 0.70000000000000007 0.70000000000000007 ;
+	setAttr ".los" -type "double3" 0.20000000000000007 0.20000000000000007 0.20000000000000007 ;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "A63D6800-4F2A-3930-5024-9ABE87693107";
 	setAttr -s 11 ".lnk";
@@ -4106,17 +3966,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 168\n            -height 315\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 175\n            -height 315\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n"
 		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n"
 		+ "            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n"
-		+ "            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 167\n            -height 315\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n"
+		+ "            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 175\n            -height 315\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
 		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
 		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n"
-		+ "            -width 168\n            -height 315\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
+		+ "            -width 175\n            -height 315\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
 		+ "            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n"
 		+ "            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n"
-		+ "            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 342\n            -height 699\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n"
+		+ "            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 256\n            -height 674\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n"
 		+ "            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAnimatedShapes 1\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n"
 		+ "            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAnimatedShapes 1\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n"
@@ -4142,8 +4002,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n"
 		+ "                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n"
 		+ "                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 342\\n    -height 699\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 342\\n    -height 699\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 256\\n    -height 674\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 256\\n    -height 674\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
