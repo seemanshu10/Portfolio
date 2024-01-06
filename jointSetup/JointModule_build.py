@@ -56,20 +56,4 @@ def attr_Get(object_name):
     return attribute_values
 
 
-def objectPass():
 
-    # Replace 'your_object_name' with the name of the object you want to inspect
-    object_name = 'root'
-
-    # Get all attributes and their values for the specified object
-    attributes_values = attr_Get(object_name)
-
-    if attributes_values:
-        print("Attributes and their values for:"+str(object_name))
-        for attr, value in attributes_values.items():
-            print(str(attr)+":" +str(value))
-    else:
-        print("No attributes found for "+str(object_name)+"or it does not exist in the Maya scene.")
-
-
-objectPass()

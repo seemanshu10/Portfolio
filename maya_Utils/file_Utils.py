@@ -47,4 +47,4 @@ def open_files(path_name):
         mc.error ("File path is not a valid path.")
 
 
-
+getDirectoryPath()
