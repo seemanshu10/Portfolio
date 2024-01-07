@@ -4,7 +4,7 @@
 
 
 #importing the maya modules 
-from Moduleimporters import Import
+#from Moduleimporters import Import
 
 
 def moduleSimpleFk(Module):
