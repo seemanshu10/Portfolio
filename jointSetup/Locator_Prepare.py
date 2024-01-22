@@ -9,6 +9,11 @@ import maya.cmds as mc
 from dataLib.data_rec import module_Type,sides
 from mayaUtils.data_utils import get_relatives
 
+
+from dataLib.at_util import testing 
+
+testing()
+
 def locatorPrepare():
 
     """

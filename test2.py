@@ -25,3 +25,9 @@ print (dirPath)
 #print os.path.split(maya.cmds.__file__)[0]
 #print('basename:    ', os.path.basename(__file__))
 #print('dirname:     ', os.path.dirname(__file__))
+
+
+from dataLib.at_util import testing 
+
+testing()
+
